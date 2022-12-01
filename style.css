@@ -1,0 +1,9 @@
+.tDestaques{
+    text-decoration: overline;
+    
+    
+}
+
+.card:hover{
+    border-color: rgb(255, 235, 247);
+ }
