@@ -17,20 +17,20 @@
 </head>
 
 <body>
-   <!-----------------------------------------CABEÇALHO---------------------------------------------------------------->
+    <!-----------------------------------------CABEÇALHO---------------------------------------------------------------->
 
     <header>
         <nav class="navbar navbar-expand-lg bg-light navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./index.html">Portal GAMES</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item" >
+                        <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#destaques">Destaques</a>
                         </li>
                         <li class="nav-item">
@@ -40,13 +40,14 @@
                             <a class="nav-link" href="#plataformas">Plataformas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#plublishers">Plublishers</a>
+                            <a class="nav-link" href="#publishers">Publishers</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" id="txtBusca" type="search" placeholder="Procurar..." aria-label="Pesquisar">
+                        <input class="form-control me-2" id="txtBusca" type="search" placeholder="Procurar..."
+                            aria-label="Pesquisar">
                         <button onclick="search(document.getElementById('txtBusca').value)" id="btnBusca"
-                            class="btn btn-outline-success" type="submit">Pesquisar</button>
+                            class="btn btn-outline-success" type="button">Pesquisar</button>
                     </form>
                 </div>
             </div>
@@ -59,7 +60,7 @@
             </script>
         </nav>
     </header>
-     
+
     <!-----------------------------------------DESTAQUES---------------------------------------------------------------->
     <section id="destaques" class="destaques" style="background-color: rgb(194, 56, 56);">
         <div class="titulo-destaques" style="padding-top:55px; text-align: center;">
@@ -94,23 +95,26 @@
         </script>
     </section>
 
-    
- <!-----------------------------------------LANÇAMENTOS---------------------------------------------------------------->
- <section class="lancamentos" id="lançamentos" style="background-color:rgb(32, 32, 32); color: aliceblue; text-align: center; ">
-    <h1 id="lançamentos" style="text-align: center; padding-top: 40px; padding-bottom: 20px; text-decoration: overline">LANÇAMENTOS</h1>
-    <div class="container-fluid">
-        <div class="row" id="conteudolancamento">
+
+    <!-----------------------------------------LANÇAMENTOS---------------------------------------------------------------->
+    <section class="lancamentos" id="lançamentos"
+        style="background-color:rgb(32, 32, 32); color: aliceblue; text-align: center; ">
+        <h1 id="lançamentos"
+            style="text-align: center; padding-top: 40px; padding-bottom: 20px; text-decoration: overline">LANÇAMENTOS
+        </h1>
+        <div class="container-fluid">
+            <div class="row" id="conteudolancamento">
+            </div>
         </div>
-    </div>
-    <script>
-        fetch('https://api.rawg.io/api/games?key=b327635868454f4b8e57e82f4c525c59')
-            .then(res => res.json())
-            .then(data => {
-                console.log('Imprimindo jogos')
-                let str = ''
-                for (let i = 8; i < 16; i++) {
-                    let jogo = data.results[i]
-                    str += `<div class="card col-md-4" style="width: 18rem; margin: 20px; background-color: beige">
+        <script>
+            fetch('https://api.rawg.io/api/games?key=b327635868454f4b8e57e82f4c525c59')
+                .then(res => res.json())
+                .then(data => {
+                    console.log('Imprimindo jogos')
+                    let str = ''
+                    for (let i = 8; i < 16; i++) {
+                        let jogo = data.results[i]
+                        str += `<div class="card col-md-4" style="width: 18rem; margin: 20px; background-color: beige">
             <img src="${jogo.background_image}" class="card-img-top" alt="..." style="height: 200px; padding-top: 12px">
             <div class="card-body" style="color: rgb(32, 32, 32); text-aling: center">
                 <h5 class="card-title">${jogo.name}</h5>
@@ -119,14 +123,107 @@
                 <a style="background-color: rgb(32, 32, 32)" href="https://rawg.io/games/${jogo.id}" target="_blank" class="btn btn-primary">Mais detalhes</a>
             </div>
             </div>`
-                }
-                document.getElementById('conteudolancamento').innerHTML = str
-            })
+                    }
+                    document.getElementById('conteudolancamento').innerHTML = str
+                })
 
-    </script>
-</section>
+        </script>
+    </section>
 
+    <!-----------------------------------------PLATAFORMAS---------------------------------------------------------------->
+    <section class="plataformas" id="plataformas" style="background-color:rgb(194, 56, 56)">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 20px; text-decoration: overline;">PLATAFORMAS
+        </h1>
+        <div class="container-fluid">
+            <div class="row" id="conteudoPlataforma">
+            </div>
+        </div>
+        <script>
+            fetch('https://api.rawg.io/api/platforms?key=b327635868454f4b8e57e82f4c525c59')
+                .then(res => res.json())
+                .then(data => {
+                    console.log('Imprimindo jogos')
+                    let str = ''
+                    for (let i = 2; i < 10; i++) {
+                        let plataforma = data.results[i]
+                        str += `<div class="card col-md-4" style="width: 18rem; margin: 20px; background-color: rgb(32, 32, 32); text-aling: center">
+            <img src="${plataforma.image_background}" class="card-img-top" alt="..." style="height: 200px; padding-top: 12px">
+            <div class="card-body">
+                <h5 style="color: aliceblue" class="card-title">${plataforma.name}</h5>
+                
+                <a href="https://rawg.io/games/${plataforma.id}" target="_blank" class="btn btn-primary">Mais detalhes</a>
+            </div>
+            </div>`
+                    }
+                    document.getElementById('conteudoPlataforma').innerHTML = str
+                })
 
+        </script>
+    </section>
+
+    <!-----------------------------------------PUBLISHERS---------------------------------------------------------------->
+    <section class="publishers" id="publishers" style="background-color:rgb(32, 32, 32); color: aliceblue">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 20px; text-decoration: overline;">PUBLISHERS
+        </h1>
+        <div class="container-fluid">
+            <div class="row" id="conteudopublishers">
+            </div>
+        </div>
+        <script>
+            fetch('https://api.rawg.io/api/publishers?key=b327635868454f4b8e57e82f4c525c59')
+                .then(res => res.json())
+                .then(data => {
+                    let str = ''
+                    for (let i = 0; i < 8; i++) {
+                        let publishers = data.results[i]
+                        str += `<div class="card col-md-4" style="width: 18rem; margin: 20px; background-color: aliceblue; text-aling: center; color: rgb(32, 32, 32); color ">
+            <img src="${publishers.image_background}" class="card-img-top" alt="..." style="height: 200px; padding-top: 12px">
+            <div class="card-body">
+                <h5 class="card-title">Publicado por: ${publishers.name}</h5>
+                <hr>
+                <h5 class="card-title">Código do jogo: ${publishers.games_count}</h5>
+                <br>
+                <a href="https://rawg.io/publishers/${publishers.id}" target="_blank" class="btn btn-primary">Veja mais publicações de ${publishers.name}</a>
+            </div>
+            </div>`
+                    }
+                    document.getElementById('conteudopublishers').innerHTML = str
+                })
+
+        </script>
+    </section>
+</main>
+
+<section id="sobre" class=" row sobre"
+        style="padding-bottom: 0px; padding-top: 80px; padding-right: 80px; padding-left: 80px; background-color: rgb(194, 56, 56);">
+        <div class="col-sm-12 col-lg-6 col-md-6 cor1" style="color: black;">
+            <h1 style="text-decoration: overline;">Sobre</h1>
+            <p>
+            </p>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-md-6 cor2">
+            <h1 class="tituo" style="text-decoration:overline">Editorial</h1>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                </svg> <b>Desenvolvedor:</b> Luana Mateus de Almeida</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                </svg> <b>Curso:</b> Sistemas de Informação - PUC/São Gabriel</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                </svg> <b>Professor:</b> Profs. da Disciplina de Aplicações Web</p>
+        </div>
+        <footer class="container">
+            <div class="col-12" style="text-align:center; padding-top: 50px;">
+                <p class="copyright" style="text-align: center;">&copy; Copyright Luana Mateus de Almeida -
+                    2022</p>
+            </div>
+        </footer>
+
+    </section>
 </body>
 
 </html>
