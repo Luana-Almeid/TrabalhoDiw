@@ -42,6 +42,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#publishers">Publishers</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sobre">Sobre</a>
+                        </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" id="txtBusca" type="search" placeholder="Procurar..."
@@ -176,7 +179,7 @@
                     let str = ''
                     for (let i = 0; i < 8; i++) {
                         let publishers = data.results[i]
-                        str += `<div class="card col-md-4" style="width: 18rem; margin: 20px; background-color: aliceblue; text-aling: center; color: rgb(32, 32, 32); color ">
+                        str += `<div class="card col-md-4" style="width: 18rem; margin: 20px; background-color: beige; text-aling: center; color: rgb(32, 32, 32); color ">
             <img src="${publishers.image_background}" class="card-img-top" alt="..." style="height: 200px; padding-top: 12px">
             <div class="card-body">
                 <h5 class="card-title">Publicado por: ${publishers.name}</h5>
@@ -192,13 +195,15 @@
 
         </script>
     </section>
-</main>
+    </main>
 
-<section id="sobre" class=" row sobre"
-        style="padding-bottom: 0px; padding-top: 80px; padding-right: 80px; padding-left: 80px; background-color: rgb(194, 56, 56);">
-        <div class="col-sm-12 col-lg-6 col-md-6 cor1" style="color: black;">
+    <section id="sobre" class=" row sobre"
+        style="padding-bottom: 0px; padding-top: 80px; padding-right: 80px; padding-left: 80px; background-color: rgb(194, 56, 56); color:black">
+        <div class="col-sm-12 col-lg-6 col-md-6 cor1">
             <h1 style="text-decoration: overline;">Sobre</h1>
             <p>
+                Esse é um site de um Portal de Games desenvolvido para a disciplina de Desenvolvimento de Interfaces Web
+                integrando uma API e usando recursos como: HTML, CSS e JavaScript.
             </p>
         </div>
         <div class="col-sm-12 col-lg-6 col-md-6 cor2">
@@ -206,7 +211,7 @@
             <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                </svg> <b>Desenvolvedor:</b> Luana Mateus de Almeida</p>
+                </svg> <b>Desenvolvedor:</b> Luana Mateus de Almeida (Matrícula: 791456)</p>
             <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
@@ -214,7 +219,7 @@
             <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                </svg> <b>Professor:</b> Profs. da Disciplina de Aplicações Web</p>
+                </svg> <b>Professor Orientador:</b> Profs. da Disciplina de Aplicações Web</p>
         </div>
         <footer class="container">
             <div class="col-12" style="text-align:center; padding-top: 50px;">
